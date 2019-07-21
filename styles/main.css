@@ -1,0 +1,27 @@
+:root {
+    --font-size: 20px;
+}
+
+body {
+    font-family: Helvetica, sans-serif;
+    font-size: var(--font-size);
+    text-align: center
+}
+
+textarea {
+    font-size: var(--font-size);
+    background: rgb(250, 250, 250);
+    padding: 10px;
+}
+
+textarea[disabled] {
+    background: rgb(200, 200, 200);
+}
+
+button {
+    font-size: var(--font-size);
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin: 5px;
+    cursor: pointer;
+}
