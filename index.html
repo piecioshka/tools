@@ -1,14 +1,26 @@
-<title>Tools</title>
-<meta charset="utf-8"/>
-<link rel="stylesheet" href="styles/main.css">
+<html>
+<head>
+    <title>Tools</title>
+    <meta charset="utf-8">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="scripts/base64.js"></script>
+</head>
+<body>
 
-<fieldset>
-    <legend>Text → Base64</legend>
-    <textarea id="text-base64-input" rows="5" cols="50"></textarea>
-    <br/>
-    <button id="text-base64-convert">Convert</button>
-    <br/>
-    <textarea id="text-base64-output" rows="5" cols="50" disabled></textarea>
-</fieldset>
+    <fieldset>
+        <legend>Text → Base64</legend>
+        <textarea id="text-base64-input" rows="5"></textarea>
+        <button id="text-base64-convert">Convert</button>
+        <textarea id="text-base64-output" rows="5"></textarea>
+    </fieldset>
 
-<script src="scripts/base64.js"></script>
+    <fieldset>
+        <legend>Base64 → Text</legend>
+        <textarea id="base64-text-input" rows="5"></textarea>
+        <button id="base64-text-convert">Convert</button>
+        <textarea id="base64-text-output" rows="5"></textarea>
+    </fieldset>
+
+</body>
+</html>
