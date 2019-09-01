@@ -8,5 +8,6 @@
 
 ## Features
 
+* :white_check_mark: Remove rich formatting from text
 * :white_check_mark: Encode / decode Base64 string
 * :white_check_mark: Calculate proportions

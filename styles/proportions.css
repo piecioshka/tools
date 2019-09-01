@@ -1,7 +1,7 @@
 .proportions input {
     font-size: var(--font-size);
     background: var(--control-background);
-    border: 1px solid rgb(180, 180, 180);
+    border: 1px solid var(--control-border);
     border-radius: var(--radius);
     padding: 10px;
     display: block;
