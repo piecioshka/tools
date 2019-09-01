@@ -29,3 +29,7 @@ h2 {
     font-size: 22px;
     padding: 3px 0;
 }
+
+.hide {
+    display: none;
+}

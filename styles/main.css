@@ -1,4 +1,5 @@
 @import './global.css';
+@import './error-handler.css';
 @import './base64.css';
 @import './proportions.css';
 @import './remove-text-formatting.css';
