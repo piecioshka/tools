@@ -1,0 +1,25 @@
+:root {
+    --font-family: Lato, sans-serif;
+    --font-size: 16px;
+    --radius: 5px;
+    --primary-color: #fab229;
+    --primary-color-darken: #d99c38;
+    --control-background: rgb(250, 250, 250);
+    --control-background-disabled: rgb(200, 200, 200);
+    --component-border: rgb(230, 230, 230);
+}
+
+body {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    text-align: center;
+    margin: 0;
+    padding: 0 0 50px 0;
+}
+
+h2 {
+    background: #eee;
+    font-weight: 300;
+    font-size: 22px;
+    padding: 3px 0;
+}

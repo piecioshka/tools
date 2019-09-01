@@ -1,0 +1,37 @@
+
+fieldset {
+    display: inline-block;
+    border: 1px solid var(--component-border);
+    border-radius: var(--radius);
+}
+
+textarea {
+    font-size: var(--font-size);
+    background: var(--control-background);
+    border: 1px solid rgb(180, 180, 180);
+    border-radius: var(--radius);
+    padding: 10px;
+    display: block;
+    width: 300px;
+}
+
+textarea[id$="output"] {
+    background: var(--control-background-disabled);
+}
+
+button {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    border-radius: var(--radius);
+    border: none;
+    padding: 5px 10px;
+    margin: 5px 0;
+    cursor: pointer;
+    background: var(--primary-color);
+    display: block;
+    width: 100%;
+}
+
+button:active {
+    background: var(--primary-color-darken);
+}
