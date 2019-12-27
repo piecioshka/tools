@@ -1,0 +1,8 @@
+.slugify fieldset {
+    width: 100%;
+    max-width: 630px;
+}
+
+.slugify textarea {
+    width: 100%;
+}
