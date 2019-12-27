@@ -7,6 +7,7 @@
 
         $button.addEventListener('click', () => {
             $output.value = convert($input.value);
+            $output.select();
         });
 
         $output.addEventListener('click', () => {

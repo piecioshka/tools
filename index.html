@@ -9,6 +9,7 @@
     <script src="scripts/base64.js"></script>
     <script src="scripts/proportions.js"></script>
     <script src="scripts/remove-text-formatting.js"></script>
+    <script src="scripts/slugify.js"></script>
 </head>
 <body>
 
@@ -18,6 +19,17 @@
         <h2>Remove Text Formatting</h2>
 
         <textarea placeholder="Paste here..."></textarea>
+    </div>
+
+    <div class="slugify component">
+        <h2>Slugify</h2>
+
+        <fieldset>
+            <legend>Slufigy</legend>
+            <textarea id="slugify-input" rows="5" placeholder="Paste here..."></textarea>
+            <button id="slugify-slug">Slug</button>
+            <textarea id="slugify-output" rows="5"></textarea>
+        </fieldset>
     </div>
 
     <div class="base64 component">

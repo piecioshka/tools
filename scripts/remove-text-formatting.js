@@ -21,7 +21,6 @@
 
     function main() {
         const $editor = d.querySelector('textarea');
-        $editor.focus();
         $editor.addEventListener('keyup', () => {
             save($editor.value);
         });
