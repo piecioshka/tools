@@ -3,10 +3,13 @@
     <title>Tools</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="styles/main.css">
+
     <script src="scripts/error-handler.js"></script>
-    <script src="scripts/base64.js"></script>
+    <script src="scripts/base64-converter.js"></script>
+    <script src="scripts/binary-converter.js"></script>
     <script src="scripts/proportions.js"></script>
     <script src="scripts/remove-text-formatting.js"></script>
     <script src="scripts/slugify.js"></script>
@@ -19,6 +22,24 @@
         <h2>Remove Text Formatting</h2>
 
         <textarea placeholder="Paste here..."></textarea>
+    </div>
+
+    <div class="binary component">
+        <h2>Binary Converter</h2>
+
+        <fieldset>
+            <legend>Text → Binary</legend>
+            <textarea id="text-binary-input" rows="5" placeholder="Enter text here..."></textarea>
+            <button id="text-binary-convert">Encode</button>
+            <textarea id="text-binary-output" rows="5"></textarea>
+        </fieldset>
+
+        <fieldset>
+            <legend>Binary → Text</legend>
+            <textarea id="binary-text-input" rows="5" placeholder="Enter text here..."></textarea>
+            <button id="binary-text-convert">Decode</button>
+            <textarea id="binary-text-output" rows="5"></textarea>
+        </fieldset>
     </div>
 
     <div class="slugify component">
