@@ -29,7 +29,7 @@
             button: '#text-binary-convert',
             convert: (data) => data.trim()
                 .split('')
-                .map(char => char.charCodeAt(0).toString(2))
+                .map(char => '00'.concat(char.charCodeAt(0).toString(2)).slice(-8))
                 .join('')
         });
         setupComponent({
