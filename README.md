@@ -2,7 +2,7 @@
 
 🛠 Stack of Tools in JavaScript
 
-## Demo 🎉
+## Preview 🎉
 
 <https://piecioshka.github.io/tools>
 
