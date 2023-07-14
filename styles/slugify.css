@@ -3,6 +3,11 @@
     max-width: 630px;
 }
 
+#slugify-strategy {
+  width: 100%;
+  margin: 0 0 10px 0;
+}
+
 .slugify textarea {
     width: 100%;
 }

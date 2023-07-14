@@ -53,7 +53,12 @@
         <h2>Slugify</h2>
 
         <fieldset>
-            <legend>Slugify</legend>
+            <select id="slugify-strategy">
+              <option value="NFC">NFC - Canonical Decomposition, followed by Canonical Composition</option>
+              <option value="NFD" selected>NFD - Canonical Decomposition</option>
+              <option value="NFKC">NFKC — Compatibility Decomposition, followed by Canonical Composition</option>
+              <option value="NFKD">NFKD - Compatibility Decomposition</option>
+            </select>
             <textarea id="slugify-input" rows="5" placeholder="Paste here..."></textarea>
             <button id="slugify-slug">Slug</button>
             <textarea id="slugify-output" rows="5"></textarea>
