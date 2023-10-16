@@ -4,7 +4,7 @@
 
 ## Preview 🎉
 
-<https://piecioshka.github.io/tools>
+<https://piecioshka.github.io/tools/>
 
 ## Features
 

@@ -1,13 +1,13 @@
-.slugify fieldset {
+#slugify fieldset {
     width: 100%;
     max-width: 630px;
+}
+
+#slugify textarea {
+    width: 100%;
 }
 
 #slugify-strategy {
   width: 100%;
   margin: 0 0 10px 0;
-}
-
-.slugify textarea {
-    width: 100%;
 }

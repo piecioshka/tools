@@ -1,4 +1,4 @@
-.proportions input {
+#proportions input {
     font-size: var(--font-size);
     background: var(--control-background);
     border: 1px solid var(--control-border);
@@ -9,11 +9,11 @@
     text-align: center
 }
 
-.proportions input:disabled {
+#proportions input:disabled {
     background: var(--control-background-disabled);
 }
 
-.proportions hr {
+#proportions hr {
     width: 50%;
     margin: 15px auto;
 }
