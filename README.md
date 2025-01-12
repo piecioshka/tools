@@ -1,6 +1,6 @@
 # tools
 
-🛠 Stack of Tools in JavaScript
+🛠 Stack of Tools
 
 ## Preview 🎉
 
@@ -8,8 +8,8 @@
 
 ## Features
 
-* :white_check_mark: Remove formatting from rich text
-* :white_check_mark: Encode / decode Binary string
-* :white_check_mark: Slugify (support replacing polish chars)
-* :white_check_mark: Encode / decode Base64 string
-* :white_check_mark: Calculate proportions
+- ✅ Remove formatting from rich text
+- ✅ Encode / decode Binary string
+- ✅ Slugify (support replacing polish chars)
+- ✅ Encode / decode Base64 string
+- ✅ Calculate proportions
