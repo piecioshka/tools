@@ -1,7 +1,6 @@
 (function (d) {
-
     function calc(x, y, z) {
-        return y * z / x;
+        return (y * z) / x;
     }
 
     function compile($x, $y, $z) {
@@ -12,10 +11,10 @@
     }
 
     function main() {
-        const $x = document.querySelector('.x');
-        const $y = document.querySelector('.y');
-        const $z = document.querySelector('.z');
-        const $q = document.querySelector('.q');
+        const $x = document.querySelector(".x");
+        const $y = document.querySelector(".y");
+        const $z = document.querySelector(".z");
+        const $q = document.querySelector(".q");
 
         function render() {
             const result = compile($x, $y, $z);
@@ -23,15 +22,14 @@
         }
 
         [$x, $y, $z].forEach(($input) => {
-            $input.addEventListener('change', () => {
+            $input.addEventListener("change", () => {
                 render();
             });
-            $input.addEventListener('focus', () => {
+            $input.addEventListener("focus", () => {
                 $input.select();
             });
         });
     }
 
-    d.addEventListener('DOMContentLoaded', main);
-
-}(document));
+    d.addEventListener("DOMContentLoaded", main);
+})(document);

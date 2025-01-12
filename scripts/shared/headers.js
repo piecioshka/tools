@@ -1,5 +1,4 @@
 (function (d) {
-
     function main() {
         const $headers = [...d.querySelectorAll("h2")];
 

@@ -29,90 +29,103 @@
     <div id="remove-text-formatting" class="component">
         <h2>Remove Text Formatting</h2>
 
-        <textarea placeholder="Paste here..."></textarea>
+        <div class="component-content">
+            <fieldset>
+                <legend>Paste any text here <em>(it will be saved in LocalStorage)</em></legend>
+                <textarea placeholder="Paste here..." rows="10"></textarea>
+            </fieldset>
+        </div>
     </div>
 
     <div id="binary" class="component">
         <h2>Binary Converter</h2>
 
-        <fieldset>
-            <legend>Text → Binary</legend>
-            <textarea id="text-binary-input" rows="5" placeholder="Enter text here..."></textarea>
-            <button id="text-binary-convert">Encode</button>
-            <textarea id="text-binary-output" rows="5"></textarea>
-        </fieldset>
+        <div class="component-content">
+            <fieldset>
+                <legend>Text → Binary</legend>
+                <textarea id="text-binary-input" rows="5" placeholder="Enter text here..."></textarea>
+                <button id="text-binary-convert">Encode</button>
+                <textarea id="text-binary-output" rows="5"></textarea>
+            </fieldset>
 
-        <fieldset>
-            <legend>Binary → Text</legend>
-            <textarea id="binary-text-input" rows="5" placeholder="Enter text here..."></textarea>
-            <button id="binary-text-convert">Decode</button>
-            <textarea id="binary-text-output" rows="5"></textarea>
-        </fieldset>
+            <fieldset>
+                <legend>Binary → Text</legend>
+                <textarea id="binary-text-input" rows="5" placeholder="Enter text here..."></textarea>
+                <button id="binary-text-convert">Decode</button>
+                <textarea id="binary-text-output" rows="5"></textarea>
+            </fieldset>
+        </div>
     </div>
 
     <div id="slugify" class="component">
         <h2>Slugify</h2>
 
-        <fieldset>
-            <select id="slugify-strategy">
-              <option value="NFC">NFC - Canonical Decomposition, followed by Canonical Composition</option>
-              <option value="NFD" selected>NFD - Canonical Decomposition</option>
-              <option value="NFKC">NFKC — Compatibility Decomposition, followed by Canonical Composition</option>
-              <option value="NFKD">NFKD - Compatibility Decomposition</option>
-            </select>
-            <textarea id="slugify-input" rows="5" placeholder="Paste here..."></textarea>
-            <button id="slugify-slug">Slug</button>
-            <textarea id="slugify-output" rows="5"></textarea>
-        </fieldset>
+        <div class="component-content">
+            <fieldset>
+                <select id="slugify-strategy">
+                    <option value="NFC">NFC - Canonical Decomposition, followed by Canonical Composition</option>
+                    <option value="NFD" selected>NFD - Canonical Decomposition</option>
+                    <option value="NFKC">NFKC — Compatibility Decomposition, followed by Canonical Composition</option>
+                    <option value="NFKD">NFKD - Compatibility Decomposition</option>
+                </select>
+                <textarea id="slugify-input" rows="5" placeholder="Paste here..."></textarea>
+                <button id="slugify-slug">Slug</button>
+                <textarea id="slugify-output" rows="5"></textarea>
+            </fieldset>
+        </div>
     </div>
 
     <div id="base64" class="component">
         <h2>Base64 Converter</h2>
 
-        <fieldset>
-            <legend>Text → Base64</legend>
-            <textarea id="text-base64-input" rows="5" placeholder="Enter text here..."></textarea>
-            <button id="text-base64-convert">Encode</button>
-            <textarea id="text-base64-output" rows="5"></textarea>
-        </fieldset>
+        <div class="component-content">
+            <fieldset>
+                <legend>Text → Base64</legend>
+                <textarea id="text-base64-input" rows="5" placeholder="Enter text here..."></textarea>
+                <button id="text-base64-convert">Encode</button>
+                <textarea id="text-base64-output" rows="5"></textarea>
+            </fieldset>
 
-        <fieldset>
-            <legend>Base64 → Text</legend>
-            <textarea id="base64-text-input" rows="5" placeholder="Enter text here..."></textarea>
-            <button id="base64-text-convert">Decode</button>
-            <textarea id="base64-text-output" rows="5"></textarea>
-        </fieldset>
+            <fieldset>
+                <legend>Base64 → Text</legend>
+                <textarea id="base64-text-input" rows="5" placeholder="Enter text here..."></textarea>
+                <button id="base64-text-convert">Decode</button>
+                <textarea id="base64-text-output" rows="5"></textarea>
+            </fieldset>
+        </div>
     </div>
 
     <div id="proportions" class="component">
         <h2>Proportions</h2>
 
-        <fieldset>
-            <legend>Left</legend>
-            <label>
-                <input type="text" class="x" value="0"/>
-            </label>
+        <div class="component-content">
+            <fieldset>
+                <legend>Left</legend>
+                <label>
+                    <input type="text" class="x" value="0"/>
+                </label>
 
-            <hr/>
+                <hr/>
 
-            <label>
-                <input type="text" class="y" value="0"/>
-            </label>
-        </fieldset>
+                <label>
+                    <input type="text" class="y" value="0"/>
+                </label>
+            </fieldset>
 
-        <fieldset>
-            <legend>Right</legend>
+            <fieldset>
+                <legend>Right</legend>
 
-            <label>
-                <input type="text" class="z" value="0"/>
-            </label>
+                <label>
+                    <input type="text" class="z" value="0"/>
+                </label>
 
-            <hr/>
+                <hr/>
 
-            <label>
-                <input type="text" class="q" value="0" disabled/>
-            </label>
-        </fieldset>
+                <label>
+                    <input type="text" class="q" value="0" disabled/>
+                </label>
+            </fieldset>
+        </div>
     </div>
 
     <div class="error-message hide">

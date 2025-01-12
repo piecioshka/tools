@@ -1,7 +1,6 @@
 (function (d, KEY) {
-
     function save(content) {
-        let data = '';
+        let data = "";
         try {
             data = JSON.stringify(content);
         } catch (err) {
@@ -15,18 +14,18 @@
         try {
             return JSON.parse(data);
         } catch (err) {
-            return '';
+            return "";
         }
     }
 
     function main() {
-        const $editor = d.querySelector('textarea');
-        $editor.addEventListener('keyup', () => {
+        const $editor = d.querySelector("textarea");
+        if (!$editor) return;
+        $editor.addEventListener("keyup", () => {
             save($editor.value);
         });
         $editor.value = revoke();
     }
 
-    d.addEventListener('DOMContentLoaded', main);
-
-})(document, '__cache');
+    d.addEventListener("DOMContentLoaded", main);
+})(document, "__cache");

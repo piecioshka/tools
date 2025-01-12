@@ -7,7 +7,8 @@
     --control-border: rgb(180, 180, 180);
     --control-background: rgb(250, 250, 250);
     --control-background-disabled: rgb(200, 200, 200);
-    --component-border: rgb(230, 230, 230);
+    --fieldset-border: rgb(230, 230, 230);
+    --max-size: 660px;
 }
 
 ::selection {
@@ -32,9 +33,10 @@ h2 {
 
 fieldset {
     display: inline-block;
-    border: 1px solid var(--component-border);
+    border: 1px solid var(--fieldset-border);
     border-radius: var(--radius);
     vertical-align: top;
+    width: calc(100% - 20px);
 }
 
 textarea {
@@ -43,12 +45,18 @@ textarea {
     border: 1px solid var(--control-border);
     border-radius: var(--radius);
     padding: 10px;
-    display: block;
-    width: 300px;
+    display: inline-block;
+    width: 100%;
 }
 
 textarea[id$="output"] {
     background: var(--control-background-disabled);
+}
+
+select {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
 }
 
 button {
@@ -57,7 +65,7 @@ button {
     border-radius: var(--radius);
     border: none;
     padding: 5px 10px;
-    margin: 5px 0;
+    margin: 5px auto;
     cursor: pointer;
     background: var(--primary-color);
     display: block;
@@ -66,6 +74,12 @@ button {
 
 button:active {
     background: var(--primary-color-darken);
+}
+
+.component-content {
+    padding: 0 10px;
+    max-width: var(--max-size);
+    margin: 0 auto;
 }
 
 .hide {

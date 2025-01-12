@@ -1,8 +1,0 @@
-#remove-text-formatting textarea {
-    width: 100%;
-    max-width: 660px;
-    height: 200px;
-    font-size: var(--font-size);
-    margin: 0 auto;
-    border: 1px solid var(--control-border);
-}

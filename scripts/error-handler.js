@@ -1,18 +1,20 @@
-(function (global) {
-
+(function (global, d) {
     const TIME_TO_HIDE_ERROR = 5000;
     let timeout = null;
 
     function hideError() {
-        const $msg = document.querySelector('.error-message');
-        $msg.classList.add('hide');
+        const $msg = d.querySelector(".error-message");
+        if (!$msg) return;
+        $msg.classList.add("hide");
     }
 
     function displayError(message) {
-        const $msg = document.querySelector('.error-message');
-        $msg.classList.remove('hide');
+        const $msg = d.querySelector(".error-message");
+        if (!$msg) return;
+        $msg.classList.remove("hide");
 
-        const $text = document.querySelector('.error-text');
+        const $text = d.querySelector(".error-text");
+        if (!$text) return;
         $text.textContent = message;
 
         if (timeout) {
@@ -27,6 +29,5 @@
     global.onerror = (message) => {
         console.log(message);
         displayError(message);
-    }
-
-}(window));
+    };
+})(window, document);
