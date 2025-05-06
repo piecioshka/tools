@@ -14,9 +14,17 @@
          */
         const $output = document.querySelector(".date-diff-text-output");
 
+        function isValidDate(dateString) {
+            const date = new Date(dateString);
+            return !isNaN(date.getTime());
+        }
+
         function calculate() {
-            const from = new Date($from?.value ?? "").getTime();
-            const to = new Date($to?.value ?? "").getTime();
+            if (!$from?.value || !$to?.value || !isValidDate($from.value) || !isValidDate($to.value)) {
+                return NaN; // Return NaN if inputs are invalid
+            }
+            const from = new Date($from.value).getTime();
+            const to = new Date($to.value).getTime();
             const diffTime = Math.abs(to - from);
             const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
             return diffDays;
