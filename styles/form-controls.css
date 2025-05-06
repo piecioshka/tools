@@ -1,0 +1,54 @@
+input[type="text"],
+input[type="date"] {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    background: var(--control-background);
+    border: 1px solid var(--control-border);
+    border-radius: var(--radius);
+    margin: 5px auto;
+    padding: 10px;
+    text-align: center;
+    width: 100%;
+}
+
+input:disabled {
+    background: var(--control-background-disabled);
+}
+
+textarea {
+    font-size: var(--font-size);
+    background: var(--control-background);
+    border: 1px solid var(--control-border);
+    border-radius: var(--radius);
+    padding: 10px;
+    display: inline-block;
+    width: 100%;
+}
+
+textarea[id$="output"] {
+    background: var(--control-background-disabled);
+}
+
+select {
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+}
+
+button {
+    font-family: var(--font-family);
+    font-size: var(--font-size);
+    border-radius: var(--radius);
+    border: none;
+    padding: 10px;
+    margin: 5px auto;
+    cursor: pointer;
+    background: var(--primary-color);
+    display: block;
+    width: 100%;
+}
+
+button:hover,
+button:active {
+    background: var(--primary-color-darken);
+}

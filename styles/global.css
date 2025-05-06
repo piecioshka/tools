@@ -1,3 +1,9 @@
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
 :root {
     --font-family: Lato, sans-serif;
     --font-size: 16px;
@@ -39,41 +45,14 @@ fieldset {
     width: calc(100% - 20px);
 }
 
-textarea {
-    font-size: var(--font-size);
-    background: var(--control-background);
-    border: 1px solid var(--control-border);
-    border-radius: var(--radius);
-    padding: 10px;
-    display: inline-block;
+.two-columns fieldset {
     width: 100%;
+    min-width: 200px;
+    max-width: calc(50% - 35px);
 }
 
-textarea[id$="output"] {
-    background: var(--control-background-disabled);
-}
-
-select {
-    display: block;
-    margin: 10px auto;
-    width: 100%;
-}
-
-button {
-    font-family: var(--font-family);
-    font-size: var(--font-size);
-    border-radius: var(--radius);
-    border: none;
-    padding: 5px 10px;
-    margin: 5px auto;
-    cursor: pointer;
-    background: var(--primary-color);
-    display: block;
-    width: 100%;
-}
-
-button:active {
-    background: var(--primary-color-darken);
+hr.half-screen {
+    width: 50%;
 }
 
 .component-content {
@@ -84,4 +63,9 @@ button:active {
 
 .hide {
     display: none;
+}
+
+.inline {
+    display: inline-block !important;
+    width: auto !important;
 }
