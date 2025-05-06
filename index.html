@@ -1,4 +1,5 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
     <title>Tools</title>
     <meta charset="utf-8">
@@ -20,6 +21,7 @@
     <script src="scripts/proportions.js"></script>
     <script src="scripts/remove-text-formatting.js"></script>
     <script src="scripts/slugify.js"></script>
+    <script src="scripts/date-diff.js"></script>
     <script src="scripts/shared/headers.js"></script>
 </head>
 <body>
@@ -98,14 +100,14 @@
     <div id="proportions" class="component">
         <h2>Proportions</h2>
 
-        <div class="component-content">
+        <div class="component-content two-columns">
             <fieldset>
                 <legend>Left</legend>
                 <label>
                     <input type="text" class="x" value="0"/>
                 </label>
 
-                <hr/>
+                <hr class="half-screen"/>
 
                 <label>
                     <input type="text" class="y" value="0"/>
@@ -119,11 +121,39 @@
                     <input type="text" class="z" value="0"/>
                 </label>
 
-                <hr/>
+                <hr class="half-screen"/>
 
                 <label>
                     <input type="text" class="q" value="0" disabled/>
                 </label>
+            </fieldset>
+        </div>
+    </div>
+
+    <div id="date-diff" class="component">
+        <h2>Date Diff</h2>
+
+        <div class="component-content two-columns">
+            <fieldset>
+                <legend>From (DD/MM/YYYY)</legend>
+                <label>
+                    <input type="date" class="date-diff-from" value="2025-01-01"/>
+                </label>
+            </fieldset>
+            <fieldset>
+                <legend>To (DD/MM/YYYY)</legend>
+                <label>
+                    <input type="date" class="date-diff-to" value="2025-05-01"/>
+                </label>
+            </fieldset>
+        </div>
+
+        <div class="component-content two-columns">
+            <fieldset>
+                <button class="date-diff-calculate">Calculate</button>
+            </fieldset>
+            <fieldset>
+                <input class="date-diff-text-output" type="text" disabled />
             </fieldset>
         </div>
     </div>

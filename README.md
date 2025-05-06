@@ -13,3 +13,4 @@
 - ✅ Slugify - support replacing polish chars
 - ✅ Base64 Converter - encode / decode Base64 string
 - ✅ Calculate proportions
+- ✅ Date difference
