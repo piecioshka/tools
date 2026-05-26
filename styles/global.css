@@ -84,6 +84,13 @@ hr.half-screen {
     width: auto !important;
 }
 
+.ratio {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #555;
+}
+
 .visually-hidden {
     position: absolute;
     width: 1px;
