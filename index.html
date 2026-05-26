@@ -1,164 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tools</title>
+    <title>Tools — base64, binary, slugify, proportions, date diff</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <meta name="description" content="A collection of small in-browser tools: base64 and binary converters, slugify, proportions calculator, date diff and text formatting cleaner."/>
+    <meta name="theme-color" content="#fab229"/>
 
     <meta property="og:url" content="https://piecioshka.github.io/tools/"/>
-    <meta property="og:locale" content="pl_PL"/>
+    <meta property="og:locale" content="en_US"/>
     <meta property="og:type" content="website"/>
     <meta property="og:title" content="Tools"/>
     <meta property="og:description" content="Stack of Tools in JavaScript"/>
     <meta property="og:image" content="https://piecioshka.github.io/tools/opg.png"/>
 
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/global.css">
+    <link rel="stylesheet" href="styles/form-controls.css">
+    <link rel="stylesheet" href="styles/error-handler.css">
+    <link rel="stylesheet" href="styles/github-corner.css">
 
-    <script src="scripts/error-handler.js"></script>
-    <script src="scripts/base64-converter.js"></script>
-    <script src="scripts/binary-converter.js"></script>
-    <script src="scripts/proportions.js"></script>
-    <script src="scripts/remove-text-formatting.js"></script>
-    <script src="scripts/slugify.js"></script>
-    <script src="scripts/date-diff.js"></script>
-    <script src="scripts/shared/headers.js"></script>
+    <script defer src="scripts/error-handler.js"></script>
+    <script defer src="scripts/shared/setup-component.js"></script>
+    <script defer src="scripts/base64-converter.js"></script>
+    <script defer src="scripts/binary-converter.js"></script>
+    <script defer src="scripts/proportions.js"></script>
+    <script defer src="scripts/remove-text-formatting.js"></script>
+    <script defer src="scripts/slugify.js"></script>
+    <script defer src="scripts/date-diff.js"></script>
 </head>
 <body>
 
-    <a href="https://github.com/piecioshka/tools" class="github-corner" aria-label="View source on GitHub"><svg width="80" height="80" viewBox="0 0 250 250" style="fill:#fab229; color:#fff; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a><style>.github-corner:hover .octo-arm{animation:octocat-wave 560ms ease-in-out}@keyframes octocat-wave{0%,100%{transform:rotate(0)}20%,60%{transform:rotate(-25deg)}40%,80%{transform:rotate(10deg)}}@media (max-width:500px){.github-corner:hover .octo-arm{animation:none}.github-corner .octo-arm{animation:octocat-wave 560ms ease-in-out}}</style>
+    <a href="https://github.com/piecioshka/tools" class="github-corner" aria-label="View source on GitHub" rel="noopener noreferrer"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
 
-    <div id="remove-text-formatting" class="component">
-        <h2>Remove Text Formatting</h2>
+    <h1 class="visually-hidden">Tools</h1>
 
-        <div class="component-content">
-            <fieldset>
-                <legend>Paste any text here <em>(it will be saved in LocalStorage)</em></legend>
-                <textarea placeholder="Paste here..." rows="10"></textarea>
-            </fieldset>
-        </div>
-    </div>
+    <main>
+        <section id="remove-text-formatting" class="component">
+            <h2><a href="#remove-text-formatting">Remove Text Formatting</a></h2>
 
-    <div id="binary" class="component">
-        <h2>Binary Converter</h2>
+            <div class="component-content">
+                <fieldset>
+                    <legend>Paste any text here <em>(it will be saved in LocalStorage)</em></legend>
+                    <label for="remove-text-formatting-input" class="visually-hidden">Text to clean</label>
+                    <textarea id="remove-text-formatting-input" placeholder="Paste here..." rows="10"></textarea>
+                </fieldset>
+            </div>
+        </section>
 
-        <div class="component-content">
-            <fieldset>
-                <legend>Text → Binary</legend>
-                <textarea id="text-binary-input" rows="5" placeholder="Enter text here..."></textarea>
-                <button id="text-binary-convert">Encode</button>
-                <textarea id="text-binary-output" rows="5"></textarea>
-            </fieldset>
+        <section id="binary" class="component">
+            <h2><a href="#binary">Binary Converter</a></h2>
 
-            <fieldset>
-                <legend>Binary → Text</legend>
-                <textarea id="binary-text-input" rows="5" placeholder="Enter text here..."></textarea>
-                <button id="binary-text-convert">Decode</button>
-                <textarea id="binary-text-output" rows="5"></textarea>
-            </fieldset>
-        </div>
-    </div>
+            <div class="component-content">
+                <fieldset>
+                    <legend>Text → Binary</legend>
+                    <label for="text-binary-input" class="visually-hidden">Text to encode</label>
+                    <textarea id="text-binary-input" rows="5" placeholder="Enter text here..."></textarea>
+                    <button id="text-binary-convert">Encode</button>
+                    <label for="text-binary-output" class="visually-hidden">Binary output</label>
+                    <textarea id="text-binary-output" rows="5" readonly></textarea>
+                </fieldset>
 
-    <div id="slugify" class="component">
-        <h2>Slugify</h2>
+                <fieldset>
+                    <legend>Binary → Text</legend>
+                    <label for="binary-text-input" class="visually-hidden">Binary to decode</label>
+                    <textarea id="binary-text-input" rows="5" placeholder="Enter text here..."></textarea>
+                    <button id="binary-text-convert">Decode</button>
+                    <label for="binary-text-output" class="visually-hidden">Text output</label>
+                    <textarea id="binary-text-output" rows="5" readonly></textarea>
+                </fieldset>
+            </div>
+        </section>
 
-        <div class="component-content">
-            <fieldset>
-                <select id="slugify-strategy">
-                    <option value="NFC">NFC - Canonical Decomposition, followed by Canonical Composition</option>
-                    <option value="NFD" selected>NFD - Canonical Decomposition</option>
-                    <option value="NFKC">NFKC — Compatibility Decomposition, followed by Canonical Composition</option>
-                    <option value="NFKD">NFKD - Compatibility Decomposition</option>
-                </select>
-                <textarea id="slugify-input" rows="5" placeholder="Paste here..."></textarea>
-                <button id="slugify-slug">Slug</button>
-                <textarea id="slugify-output" rows="5"></textarea>
-            </fieldset>
-        </div>
-    </div>
+        <section id="slugify" class="component">
+            <h2><a href="#slugify">Slugify</a></h2>
 
-    <div id="base64" class="component">
-        <h2>Base64 Converter</h2>
+            <div class="component-content">
+                <fieldset>
+                    <label for="slugify-strategy" class="visually-hidden">Normalization form</label>
+                    <select id="slugify-strategy">
+                        <option value="NFC">NFC - Canonical Decomposition, followed by Canonical Composition</option>
+                        <option value="NFD" selected>NFD - Canonical Decomposition</option>
+                        <option value="NFKC">NFKC — Compatibility Decomposition, followed by Canonical Composition</option>
+                        <option value="NFKD">NFKD - Compatibility Decomposition</option>
+                    </select>
+                    <label for="slugify-input" class="visually-hidden">Text to slugify</label>
+                    <textarea id="slugify-input" rows="5" placeholder="Paste here..."></textarea>
+                    <button id="slugify-slug">Slug</button>
+                    <label for="slugify-output" class="visually-hidden">Slug output</label>
+                    <textarea id="slugify-output" rows="5" readonly></textarea>
+                </fieldset>
+            </div>
+        </section>
 
-        <div class="component-content">
-            <fieldset>
-                <legend>Text → Base64</legend>
-                <textarea id="text-base64-input" rows="5" placeholder="Enter text here..."></textarea>
-                <button id="text-base64-convert">Encode</button>
-                <textarea id="text-base64-output" rows="5"></textarea>
-            </fieldset>
+        <section id="base64" class="component">
+            <h2><a href="#base64">Base64 Converter</a></h2>
 
-            <fieldset>
-                <legend>Base64 → Text</legend>
-                <textarea id="base64-text-input" rows="5" placeholder="Enter text here..."></textarea>
-                <button id="base64-text-convert">Decode</button>
-                <textarea id="base64-text-output" rows="5"></textarea>
-            </fieldset>
-        </div>
-    </div>
+            <div class="component-content">
+                <fieldset>
+                    <legend>Text → Base64</legend>
+                    <label for="text-base64-input" class="visually-hidden">Text to encode</label>
+                    <textarea id="text-base64-input" rows="5" placeholder="Enter text here..."></textarea>
+                    <button id="text-base64-convert">Encode</button>
+                    <label for="text-base64-output" class="visually-hidden">Base64 output</label>
+                    <textarea id="text-base64-output" rows="5" readonly></textarea>
+                </fieldset>
 
-    <div id="proportions" class="component">
-        <h2>Proportions</h2>
+                <fieldset>
+                    <legend>Base64 → Text</legend>
+                    <label for="base64-text-input" class="visually-hidden">Base64 to decode</label>
+                    <textarea id="base64-text-input" rows="5" placeholder="Enter text here..."></textarea>
+                    <button id="base64-text-convert">Decode</button>
+                    <label for="base64-text-output" class="visually-hidden">Text output</label>
+                    <textarea id="base64-text-output" rows="5" readonly></textarea>
+                </fieldset>
+            </div>
+        </section>
 
-        <div class="component-content two-columns">
-            <fieldset>
-                <legend>Left</legend>
-                <label>
-                    <input type="text" class="x" value="0"/>
-                </label>
+        <section id="proportions" class="component">
+            <h2><a href="#proportions">Proportions</a></h2>
 
-                <hr class="half-screen"/>
+            <div class="component-content two-columns">
+                <fieldset>
+                    <legend>Left</legend>
+                    <label>
+                        <span class="visually-hidden">X</span>
+                        <input type="number" class="x" value="0"/>
+                    </label>
 
-                <label>
-                    <input type="text" class="y" value="0"/>
-                </label>
-            </fieldset>
+                    <hr class="half-screen"/>
 
-            <fieldset>
-                <legend>Right</legend>
+                    <label>
+                        <span class="visually-hidden">Y</span>
+                        <input type="number" class="y" value="0"/>
+                    </label>
+                </fieldset>
 
-                <label>
-                    <input type="text" class="z" value="0"/>
-                </label>
+                <fieldset>
+                    <legend>Right</legend>
+                    <label>
+                        <span class="visually-hidden">Z</span>
+                        <input type="number" class="z" value="0"/>
+                    </label>
 
-                <hr class="half-screen"/>
+                    <hr class="half-screen"/>
 
-                <label>
-                    <input type="text" class="q" value="0" disabled/>
-                </label>
-            </fieldset>
-        </div>
-    </div>
+                    <label>
+                        <span class="visually-hidden">Result</span>
+                        <input type="number" class="q" value="0" readonly/>
+                    </label>
+                </fieldset>
+            </div>
+        </section>
 
-    <div id="date-diff" class="component">
-        <h2>Date Diff</h2>
+        <section id="date-diff" class="component">
+            <h2><a href="#date-diff">Date Diff</a></h2>
 
-        <div class="component-content two-columns">
-            <fieldset>
-                <legend>From (DD/MM/YYYY)</legend>
-                <label>
-                    <input type="date" class="date-diff-from" value="2025-01-01" aria-label="From date (DD/MM/YYYY)"/>
-                </label>
-            </fieldset>
-            <fieldset>
-                <legend>To (DD/MM/YYYY)</legend>
-                <label>
-                    <input type="date" class="date-diff-to" value="2025-05-01" aria-label="To date (DD/MM/YYYY)"/>
-                </label>
-            </fieldset>
-        </div>
+            <div class="component-content two-columns">
+                <fieldset>
+                    <legend>From</legend>
+                    <label>
+                        <span class="visually-hidden">From date</span>
+                        <input type="date" class="date-diff-from" value="2025-01-01"/>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend>To</legend>
+                    <label>
+                        <span class="visually-hidden">To date</span>
+                        <input type="date" class="date-diff-to" value="2025-05-01"/>
+                    </label>
+                </fieldset>
+            </div>
 
-        <div class="component-content two-columns">
-            <fieldset>
-                <button class="date-diff-calculate">Calculate</button>
-            </fieldset>
-            <fieldset>
-                <input class="date-diff-text-output" type="text" disabled />
-            </fieldset>
-        </div>
-    </div>
+            <div class="component-content two-columns">
+                <fieldset>
+                    <button class="date-diff-calculate">Calculate</button>
+                </fieldset>
+                <fieldset>
+                    <label class="visually-hidden" for="date-diff-text-output">Result</label>
+                    <input id="date-diff-text-output" class="date-diff-text-output" type="text" readonly/>
+                </fieldset>
+            </div>
+        </section>
+    </main>
 
-    <div class="error-message hide">
+    <div class="error-message hide" role="alert" aria-live="assertive">
         <div class="error-message-content">
             <h3 class="error-header">Error!</h3>
             <p class="error-text"></p>

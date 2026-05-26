@@ -1,17 +1,24 @@
 (function (d) {
+    const nonDecomposable = [
+        { from: /ł/g, to: "l" },
+    ];
+
     const map = [
         { from: /\s+/g, to: "-" },
-        { from: /[^\w\-]+/g, to: "" },
-        { from: /\-\-+/g, to: "-" },
+        { from: /[^\w-]+/g, to: "" },
+        { from: /--+/g, to: "-" },
         { from: /^-+/, to: "" },
         { from: /-+$/, to: "" },
     ];
 
     function slugify(text, form) {
-        const lowerCased = text.toLowerCase().normalize(form);
-        return map.reduce((value, { from, to }) => {
-            return value.replace(from, to);
-        }, lowerCased);
+        let v = text
+            .toLowerCase()
+            .normalize(form)
+            .normalize("NFD")
+            .replace(/[̀-ͯ]/g, "");
+        for (const { from, to } of nonDecomposable) v = v.replace(from, to);
+        return map.reduce((value, { from, to }) => value.replace(from, to), v);
     }
 
     function main() {
@@ -20,11 +27,13 @@
         const $output = d.querySelector("#slugify-output");
         const $select = d.querySelector("#slugify-strategy");
 
-        $slug.addEventListener("click", () => {
-            const input = $input.value;
-            const output = slugify(input.toString(), $select.value);
+        if (!($input instanceof HTMLTextAreaElement)) return;
+        if (!($output instanceof HTMLTextAreaElement)) return;
+        if (!($select instanceof HTMLSelectElement)) return;
+        if (!$slug) return;
 
-            $output.value = output;
+        $slug.addEventListener("click", () => {
+            $output.value = slugify($input.value, $select.value);
             $output.select();
         });
     }

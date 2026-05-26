@@ -1,4 +1,5 @@
 input[type="text"],
+input[type="number"],
 input[type="date"] {
     font-family: var(--font-family);
     font-size: var(--font-size);
@@ -11,7 +12,12 @@ input[type="date"] {
     width: 100%;
 }
 
-input:disabled {
+input:disabled,
+input[readonly] {
+    background: var(--control-background-disabled);
+}
+
+textarea[readonly] {
     background: var(--control-background-disabled);
 }
 

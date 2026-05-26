@@ -1,31 +1,30 @@
 (function (d, KEY) {
     function save(content) {
-        let data = "";
         try {
-            data = JSON.stringify(content);
+            localStorage.setItem(KEY, JSON.stringify(content));
         } catch (err) {
-        } finally {
-            localStorage.setItem(KEY, data);
+            localStorage.setItem(KEY, "");
         }
     }
 
     function revoke() {
         const data = localStorage.getItem(KEY);
+        if (!data) return "";
         try {
-            return JSON.parse(data);
+            return JSON.parse(data) ?? "";
         } catch (err) {
             return "";
         }
     }
 
     function main() {
-        const $editor = d.querySelector("textarea");
-        if (!$editor) return;
-        $editor.addEventListener("keyup", () => {
+        const $editor = d.querySelector("#remove-text-formatting textarea");
+        if (!($editor instanceof HTMLTextAreaElement)) return;
+        $editor.addEventListener("input", () => {
             save($editor.value);
         });
         $editor.value = revoke();
     }
 
     d.addEventListener("DOMContentLoaded", main);
-})(document, "__cache");
+})(document, "tools:remove-text-formatting");

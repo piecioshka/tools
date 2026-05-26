@@ -15,7 +15,7 @@
 
         const $text = d.querySelector(".error-text");
         if (!$text) return;
-        $text.textContent = message;
+        $text.textContent = String(message);
 
         if (timeout) {
             clearTimeout(timeout);
@@ -24,10 +24,8 @@
         timeout = setTimeout(hideError, TIME_TO_HIDE_ERROR);
     }
 
-    // Object.assign(global, { displayError });
-
     global.onerror = (message) => {
-        console.log(message);
+        console.error(message);
         displayError(message);
     };
 })(window, document);
