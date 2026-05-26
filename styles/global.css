@@ -8,6 +8,7 @@
     --font-family: Lato, sans-serif;
     --font-size: 16px;
     --radius: 5px;
+    --sidebar-width: 280px;
     --primary-color: #fab229;
     --primary-color-darken: #d99c38;
     --control-border: rgb(180, 180, 180);
@@ -25,18 +26,186 @@
 body {
     font-family: var(--font-family);
     font-size: var(--font-size);
-    text-align: center;
+    color: #242424;
     margin: 0;
-    padding: 0 0 100px 0;
+    padding: 0;
+    background: #fff;
 }
 
 main {
     display: block;
+    min-width: 0;
+    text-align: center;
+}
+
+.app-layout {
+    margin-left: 0;
+    transition: margin-left 180ms ease;
+}
+
+.tools-sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 3;
+    width: var(--sidebar-width);
+    overflow-y: auto;
+    text-align: left;
+    background: #f7f7f7;
+    border-right: 1px solid var(--fieldset-border);
+    transform: translateX(-100%);
+    transition: transform 180ms ease;
+}
+
+.tools-sidebar.is-open {
+    transform: translateX(0);
+}
+
+.tools-sidebar-inner {
+    padding: 24px 18px 24px;
+}
+
+.tools-sidebar-toggle {
+    position: fixed;
+    top: 12px;
+    left: 12px;
+    z-index: 4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: auto;
+    margin: 0;
+    border-radius: var(--radius);
+    transition: left 180ms ease;
+}
+
+.tools-sidebar-toggle-icon {
+    position: relative;
+    display: inline-block;
+    width: 25px;
+    height: 23px;
+    border: 2px solid #f1eef7;
+    border-radius: 4px;
+}
+
+.tools-sidebar-toggle-icon:before {
+    content: "";
+    position: absolute;
+    top: 2px;
+    bottom: 2px;
+    left: 7px;
+    border-left: 2px solid #f1eef7;
+}
+
+.tools-sidebar-toggle-icon:after {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 3px;
+    width: 2px;
+    height: 2px;
+    border-radius: 50%;
+    background: #f1eef7;
+    box-shadow: 0 5px 0 #f1eef7, 0 10px 0 #f1eef7;
+}
+
+@media (min-width: 861px) {
+    .app-layout {
+        margin-left: var(--sidebar-width);
+    }
+
+    .tools-sidebar {
+        transform: translateX(0);
+    }
+
+    .tools-sidebar-toggle {
+        left: calc(var(--sidebar-width) + 12px);
+    }
+
+    .is-sidebar-closed .app-layout {
+        margin-left: 0;
+    }
+
+    .is-sidebar-closed .tools-sidebar {
+        transform: translateX(-100%);
+    }
+
+    .is-sidebar-closed .tools-sidebar-toggle {
+        left: 12px;
+    }
+}
+
+.tools-sidebar h2 {
+    margin: 0 0 16px;
+    border-bottom: 1px solid var(--fieldset-border);
+    padding: 0;
+    padding-bottom: 16px;
+    background: transparent;
+    font-size: 20px;
+    font-weight: 700;
+    text-align: center;
+}
+
+.tools-sidebar h2 a {
+    padding: 5px;
+    border-radius: var(--radius);
+    font-style: italic;
+    background: #fff;
+    color: #999;
+}
+
+.tools-list {
+    display: grid;
+    gap: 6px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.tools-list a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    border-radius: var(--radius);
+    color: inherit;
+    padding: 10px 12px;
+    text-decoration: none;
+}
+
+.tools-list a:hover,
+.tools-list a:focus,
+.tools-list a.is-active {
+    background: #fff;
+    outline: none;
+}
+
+.tools-list a:focus-visible {
+    box-shadow: 0 0 0 2px var(--primary-color);
+}
+
+.tool-placeholder {
+    max-width: var(--max-size);
+    margin: 20vh auto 0;
+    text-align: center;
+}
+
+.tool-placeholder h2 {
+    margin-bottom: 8px;
+    background: transparent;
+    font-size: 28px;
+    font-weight: 700;
+}
+
+.tool-placeholder p {
+    margin: 0;
+    color: #666;
 }
 
 h2 {
     background: #eee;
-    font-weight: 300;
+    font-weight: 400;
     font-size: 22px;
     padding: 3px 0;
 }
@@ -75,6 +244,19 @@ hr.half-screen {
     margin: 0 auto;
 }
 
+.component {
+    display: none;
+    scroll-margin-top: 24px;
+}
+
+.component.is-active {
+    display: block;
+}
+
+.is-hidden {
+    display: none;
+}
+
 .hide {
     display: none;
 }
@@ -101,4 +283,32 @@ hr.half-screen {
     clip: rect(0, 0, 0, 0);
     white-space: nowrap;
     border: 0;
+}
+
+@media (max-width: 860px) {
+    .app-layout {
+        margin-left: 0;
+        padding-top: 0;
+    }
+
+    .tools-sidebar {
+        width: min(var(--sidebar-width), 85vw);
+        max-height: none;
+    }
+
+    .tools-sidebar-inner {
+        padding: 72px 14px 14px;
+    }
+
+    .tools-list {
+        grid-template-columns: 1fr;
+    }
+
+    #proportions fieldset + fieldset {
+        margin-top: 20px;
+    }
+
+    .tool-placeholder {
+        margin-top: 56px;
+    }
 }
