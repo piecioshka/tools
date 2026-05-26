@@ -38,16 +38,38 @@ textarea[id$="output"] {
 }
 
 select {
+    appearance: none;
     display: block;
     color: var(--text-color);
-    background: var(--control-background);
+    background-color: var(--control-background);
+    background-image: linear-gradient(45deg, transparent 50%, var(--text-color) 50%), linear-gradient(135deg, var(--text-color) 50%, transparent 50%);
+    background-position: calc(100% - 22px) 50%, calc(100% - 16px) 50%;
+    background-repeat: no-repeat;
+    background-size: 6px 6px, 6px 6px;
+    border: 1px solid var(--control-border);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: var(--font-family);
+    font-size: var(--font-size);
     margin: 10px auto;
+    padding: 10px 44px 10px 10px;
     width: 100%;
+}
+
+select:hover {
+    border-color: var(--primary-color);
+}
+
+select:focus {
+    border-color: var(--primary-color);
+    outline: none;
+    box-shadow: 0 0 0 2px color-mix(in srgb, var(--primary-color) 35%, transparent);
 }
 
 button {
     font-family: var(--font-family);
     font-size: var(--font-size);
+    color: #000;
     border-radius: var(--radius);
     border: none;
     padding: 10px;
