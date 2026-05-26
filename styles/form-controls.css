@@ -3,6 +3,7 @@ input[type="number"],
 input[type="date"] {
     font-family: var(--font-family);
     font-size: var(--font-size);
+    color: var(--text-color);
     background: var(--control-background);
     border: 1px solid var(--control-border);
     border-radius: var(--radius);
@@ -23,6 +24,7 @@ textarea[readonly] {
 
 textarea {
     font-size: var(--font-size);
+    color: var(--text-color);
     background: var(--control-background);
     border: 1px solid var(--control-border);
     border-radius: var(--radius);
@@ -37,6 +39,8 @@ textarea[id$="output"] {
 
 select {
     display: block;
+    color: var(--text-color);
+    background: var(--control-background);
     margin: 10px auto;
     width: 100%;
 }
