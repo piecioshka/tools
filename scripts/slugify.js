@@ -1,7 +1,5 @@
 (function (d) {
-    const nonDecomposable = [
-        { from: /ł/g, to: "l" },
-    ];
+    const nonDecomposable = [{ from: /ł/g, to: "l" }];
 
     const map = [
         { from: /\s+/g, to: "-" },
@@ -22,19 +20,38 @@
     }
 
     function main() {
-        const $slug = d.querySelector("#slugify-slug");
+        const $select = d.querySelector("#slugify-strategy");
         const $input = d.querySelector("#slugify-input");
         const $output = d.querySelector("#slugify-output");
-        const $select = d.querySelector("#slugify-strategy");
+        const $slug = d.querySelector("#slugify-slug");
+        const $copy = d.querySelector("#slugify-copy");
 
         if (!($input instanceof HTMLTextAreaElement)) return;
-        if (!($output instanceof HTMLTextAreaElement)) return;
-        if (!($select instanceof HTMLSelectElement)) return;
         if (!$slug) return;
 
-        $slug.addEventListener("click", () => {
+        function updateOutput() {
+            if (!($input instanceof HTMLTextAreaElement)) return;
+            if (!($output instanceof HTMLTextAreaElement)) return;
+            if (!($select instanceof HTMLSelectElement)) return;
             $output.value = slugify($input.value, $select.value);
+        }
+
+        $slug.addEventListener("click", updateOutput);
+        $input.addEventListener("keyup", updateOutput);
+        $input.addEventListener("blur", updateOutput);
+
+        if (!($copy instanceof HTMLButtonElement)) return;
+
+        $copy.addEventListener("click", async () => {
+            if (!($output instanceof HTMLTextAreaElement)) return;
+            if (!($select instanceof HTMLSelectElement)) return;
+            await navigator.clipboard.writeText($output.value);
+            $copy.textContent = "Copied!";
             $output.select();
+            setTimeout(() => {
+                $copy.textContent = "Copy";
+                $output.setSelectionRange(0, 0);
+            }, 1500);
         });
     }
 
