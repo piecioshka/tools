@@ -19,6 +19,7 @@
 - ✅ Timestamp Converter - convert Unix timestamps (seconds or milliseconds, detected automatically) and dates to UTC, local time, ISO 8601 and relative time
 - ✅ Markdown → BBCode - convert Markdown to BBCode for TradingView script descriptions and forums, with the optional PineCoders style
 - ✅ Contrast Checker - WCAG 2 contrast ratio with AA/AAA results, also for text on a tinted background (`color-mix`)
+- ✅ URL Encode/Decode - encode and decode URL components, split a URL into parts and edit its query parameters
 
 ## License
 

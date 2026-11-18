@@ -39,6 +39,7 @@
     <script defer src="scripts/vendor/convert-md-to-bbcode.js"></script>
     <script defer src="scripts/markdown-bbcode.js"></script>
     <script defer src="scripts/contrast-checker.js"></script>
+    <script defer src="scripts/url-tools.js"></script>
     <script defer src="scripts/tools-sidebar.js"></script>
     <script defer src="scripts/theme-toggle.js"></script>
 </head>
@@ -76,6 +77,7 @@
                         <li><a href="#timestamp-converter"><span aria-hidden="true">⏱️</span> Timestamp Converter</a></li>
                         <li><a href="#markdown-bbcode"><span aria-hidden="true">📋</span> Markdown → BBCode</a></li>
                         <li><a href="#contrast-checker"><span aria-hidden="true">🎨</span> Contrast Checker</a></li>
+                        <li><a href="#url-tools"><span aria-hidden="true">🔤</span> URL Encode/Decode</a></li>
                     </ul>
                 </nav>
             </div>
@@ -405,6 +407,52 @@
                                 <tr><th scope="row">UI components</th><td>3 : 1</td><td data-contrast-level="ui"></td></tr>
                             </tbody>
                         </table>
+                    </fieldset>
+                </div>
+            </section>
+            <section id="url-tools" class="component">
+                <h2><a href="#url-tools">URL Encode/Decode</a></h2>
+
+                <div class="component-content">
+                    <fieldset>
+                        <legend>Encode / Decode</legend>
+                        <label for="url-encode-input" class="visually-hidden">Text to encode or decode</label>
+                        <textarea id="url-encode-input" rows="5" placeholder="Enter text here..." spellcheck="false"></textarea>
+                        <label class="checkbox-label">
+                            <input id="url-encode-whole" type="checkbox"/>
+                            <span>Whole URL (keep <code>: / ? &amp; = #</code> - encodeURI instead of encodeURIComponent)</span>
+                        </label>
+                        <label class="checkbox-label">
+                            <input id="url-encode-plus" type="checkbox" checked/>
+                            <span>Decode <code>+</code> as space</span>
+                        </label>
+                        <div class="button-row">
+                            <button id="url-encode" type="button">Encode</button>
+                            <button id="url-decode" type="button">Decode</button>
+                        </div>
+                        <label for="url-encode-output" class="visually-hidden">Result</label>
+                        <textarea id="url-encode-output" rows="5" readonly spellcheck="false"></textarea>
+                        <button id="url-encode-copy" type="button">Copy</button>
+                    </fieldset>
+
+                    <fieldset>
+                        <legend>Query Parser</legend>
+                        <label for="url-parser-input" class="visually-hidden">URL to parse</label>
+                        <input id="url-parser-input" type="text" placeholder="https://example.com/path?a=1&amp;b=2#hash" spellcheck="false" autocomplete="off"/>
+                        <p id="url-parser-status" class="status-text" aria-live="polite"></p>
+                        <table id="url-parser-parts" class="data-table is-hidden">
+                            <tbody></tbody>
+                        </table>
+                        <table id="url-parser-params" class="data-table is-hidden">
+                            <thead>
+                                <tr><th scope="col">Parameter</th><th scope="col">Value (decoded)</th><th scope="col"><span class="visually-hidden">Actions</span></th></tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        <button id="url-parser-add" type="button" class="is-hidden">Add parameter</button>
+                        <label for="url-parser-output" class="field-label">Rebuilt URL</label>
+                        <textarea id="url-parser-output" rows="3" readonly spellcheck="false"></textarea>
+                        <button id="url-parser-copy" type="button">Copy URL</button>
                     </fieldset>
                 </div>
             </section>
