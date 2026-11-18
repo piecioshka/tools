@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tools — base64, binary, slugify, proportions, date diff, markdown editor</title>
+    <title>Tools — small in-browser utilities</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="A collection of small in-browser tools: base64 and binary converters, slugify, proportions calculator, date diff, text formatting cleaner and WYSIWYG Markdown editor."/>
+    <meta name="description" content="A collection of small in-browser tools: text cleaning and Unicode inspection, base64, binary and URL encoding, slugify, timestamps, date diff, proportions, color contrast, WYSIWYG Markdown and Markdown to BBCode."/>
     <meta name="theme-color" content="#fab229"/>
 
     <meta property="og:url" content="https://piecioshka.github.io/tools/"/>
@@ -19,10 +19,13 @@
     <link rel="stylesheet" href="styles/form-controls.css">
     <link rel="stylesheet" href="styles/error-handler.css">
     <link rel="stylesheet" href="styles/github-corner.css">
+    <link rel="stylesheet" href="styles/data-table.css">
     <link rel="stylesheet" href="styles/markdown-editor.css">
+    <link rel="stylesheet" href="styles/unicode-inspector.css">
 
     <script defer src="scripts/error-handler.js"></script>
     <script defer src="scripts/shared/setup-component.js"></script>
+    <script defer src="scripts/shared/copy-button.js"></script>
     <script defer src="scripts/base64-converter.js"></script>
     <script defer src="scripts/binary-converter.js"></script>
     <script defer src="scripts/proportions.js"></script>
@@ -30,6 +33,7 @@
     <script defer src="scripts/slugify.js"></script>
     <script defer src="scripts/date-diff.js"></script>
     <script defer src="scripts/markdown-editor.js"></script>
+    <script defer src="scripts/unicode-inspector.js"></script>
     <script defer src="scripts/tools-sidebar.js"></script>
     <script defer src="scripts/theme-toggle.js"></script>
 </head>
@@ -63,6 +67,7 @@
                         <li><a href="#proportions"><span aria-hidden="true">📐</span> Proportions</a></li>
                         <li><a href="#date-diff"><span aria-hidden="true">📅</span> Date Diff</a></li>
                         <li><a href="#markdown-editor"><span aria-hidden="true">📝</span> WYSIWYG Markdown Editor</a></li>
+                        <li><a href="#unicode-inspector"><span aria-hidden="true">🕵️</span> Unicode Inspector</a></li>
                     </ul>
                 </nav>
             </div>
@@ -265,6 +270,39 @@
 
                     <button id="markdown-editor-copy" type="button">Copy Markdown</button>
                     <p><em>NOTE: It will be saved in LocalStorage.</em></p>
+                </div>
+            </section>
+            <section id="unicode-inspector" class="component">
+                <h2><a href="#unicode-inspector">Unicode Inspector</a></h2>
+
+                <div class="component-content">
+                    <fieldset>
+                        <legend>Paste any text here</legend>
+                        <label for="unicode-inspector-input" class="visually-hidden">Text to inspect</label>
+                        <textarea id="unicode-inspector-input" rows="8" placeholder="Paste here..."></textarea>
+                        <p id="unicode-inspector-summary" class="status-text" aria-live="polite"></p>
+                        <span class="field-label">Highlighted</span>
+                        <div id="unicode-inspector-preview" class="unicode-inspector-preview"></div>
+                        <div class="table-scroll">
+                        <table id="unicode-inspector-table" class="data-table is-hidden">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Char</th>
+                                    <th scope="col">Code point</th>
+                                    <th scope="col">Name</th>
+                                    <th scope="col" class="hide-narrow">Type</th>
+                                    <th scope="col">Count</th>
+                                    <th scope="col" class="hide-narrow">First at</th>
+                                    <th scope="col">Fix</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                        </div>
+                        <label for="unicode-inspector-output" class="field-label">Clean text</label>
+                        <textarea id="unicode-inspector-output" rows="8" readonly></textarea>
+                        <button id="unicode-inspector-copy" type="button">Copy clean text</button>
+                    </fieldset>
                 </div>
             </section>
         </main>

@@ -1,0 +1,36 @@
+.unicode-inspector-preview {
+    min-height: 3em;
+    margin: 5px 0;
+    padding: 10px;
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+    text-align: left;
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 14px;
+    background: var(--control-background-disabled);
+    border: 1px solid var(--control-border);
+    border-radius: var(--radius);
+}
+
+.unicode-mark {
+    padding: 0 2px;
+    border-radius: 3px;
+    color: #000;
+    background: var(--primary-color);
+}
+
+.unicode-mark-space,
+.unicode-mark-invisible,
+.unicode-mark-bidi,
+.unicode-mark-control {
+    font-size: 11px;
+    vertical-align: middle;
+}
+
+.unicode-mark-cyrillic,
+.unicode-mark-greek,
+.unicode-mark-bidi,
+.unicode-mark-control {
+    color: #fff;
+    background: #c0392b;
+}
