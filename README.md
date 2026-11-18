@@ -14,6 +14,7 @@
 - ✅ Base64 Converter - encode text to Base64 and decode Base64 to text
 - ✅ Proportions - calculate proportional values and display simplified ratios
 - ✅ Date Diff - calculate the number of days between two dates
+- ✅ WYSIWYG Markdown Editor - edit visually or in Markdown source with live two-way sync, saved in LocalStorage
 
 ## License
 

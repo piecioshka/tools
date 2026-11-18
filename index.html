@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Tools — base64, binary, slugify, proportions, date diff</title>
+    <title>Tools — base64, binary, slugify, proportions, date diff, markdown editor</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
-    <meta name="description" content="A collection of small in-browser tools: base64 and binary converters, slugify, proportions calculator, date diff and text formatting cleaner."/>
+    <meta name="description" content="A collection of small in-browser tools: base64 and binary converters, slugify, proportions calculator, date diff, text formatting cleaner and WYSIWYG Markdown editor."/>
     <meta name="theme-color" content="#fab229"/>
 
     <meta property="og:url" content="https://piecioshka.github.io/tools/"/>
@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="styles/form-controls.css">
     <link rel="stylesheet" href="styles/error-handler.css">
     <link rel="stylesheet" href="styles/github-corner.css">
+    <link rel="stylesheet" href="styles/markdown-editor.css">
 
     <script defer src="scripts/error-handler.js"></script>
     <script defer src="scripts/shared/setup-component.js"></script>
@@ -28,6 +29,7 @@
     <script defer src="scripts/remove-text-formatting.js"></script>
     <script defer src="scripts/slugify.js"></script>
     <script defer src="scripts/date-diff.js"></script>
+    <script defer src="scripts/markdown-editor.js"></script>
     <script defer src="scripts/tools-sidebar.js"></script>
     <script defer src="scripts/theme-toggle.js"></script>
 </head>
@@ -59,6 +61,7 @@
                         <li><a href="#base64"><span aria-hidden="true">📦</span> Base64 Converter</a></li>
                         <li><a href="#proportions"><span aria-hidden="true">📐</span> Proportions</a></li>
                         <li><a href="#date-diff"><span aria-hidden="true">📅</span> Date Diff</a></li>
+                        <li><a href="#markdown-editor"><span aria-hidden="true">📝</span> WYSIWYG Markdown Editor</a></li>
                     </ul>
                 </nav>
             </div>
@@ -222,6 +225,46 @@
                     <input id="date-diff-text-output" class="date-diff-text-output" type="text" readonly/>
                 </fieldset>
             </div>
+            </section>
+            <section id="markdown-editor" class="component">
+                <h2><a href="#markdown-editor">WYSIWYG Markdown Editor</a></h2>
+
+                <div class="component-content markdown-editor-content">
+                    <div class="markdown-editor-toolbar" role="toolbar" aria-label="Formatting" aria-controls="markdown-editor-visual">
+                        <button type="button" data-command="bold" aria-pressed="false" title="Bold (⌘B)"><strong>B</strong></button>
+                        <button type="button" data-command="italic" aria-pressed="false" title="Italic (⌘I)"><em>I</em></button>
+                        <button type="button" data-command="strikeThrough" aria-pressed="false" title="Strikethrough"><del>S</del></button>
+                        <button type="button" data-command="code" title="Inline code">&lt;/&gt;</button>
+                        <span class="markdown-editor-separator" aria-hidden="true"></span>
+                        <button type="button" data-command="formatBlock" data-value="h1" title="Heading 1">H1</button>
+                        <button type="button" data-command="formatBlock" data-value="h2" title="Heading 2">H2</button>
+                        <button type="button" data-command="formatBlock" data-value="h3" title="Heading 3">H3</button>
+                        <button type="button" data-command="formatBlock" data-value="p" title="Paragraph">¶</button>
+                        <span class="markdown-editor-separator" aria-hidden="true"></span>
+                        <button type="button" data-command="insertUnorderedList" title="Bulleted list">• List</button>
+                        <button type="button" data-command="insertOrderedList" title="Numbered list">1. List</button>
+                        <button type="button" data-command="formatBlock" data-value="blockquote" title="Quote">❝</button>
+                        <button type="button" data-command="formatBlock" data-value="pre" title="Code block">{ }</button>
+                        <button type="button" data-command="link" title="Link">🔗</button>
+                        <button type="button" data-command="insertHorizontalRule" title="Horizontal rule">―</button>
+                        <span class="markdown-editor-separator" aria-hidden="true"></span>
+                        <button type="button" data-command="removeFormat" title="Clear formatting">⌫ Clear</button>
+                    </div>
+
+                    <div class="markdown-editor-panes">
+                        <div class="markdown-editor-pane">
+                            <span id="markdown-editor-visual-label" class="markdown-editor-pane-label">Visual</span>
+                            <div id="markdown-editor-visual" class="markdown-editor-visual" contenteditable="true" role="textbox" aria-multiline="true" aria-labelledby="markdown-editor-visual-label" spellcheck="true"></div>
+                        </div>
+                        <div class="markdown-editor-pane">
+                            <label for="markdown-editor-source" class="markdown-editor-pane-label">Markdown</label>
+                            <textarea id="markdown-editor-source" class="markdown-editor-source" rows="14" spellcheck="false"></textarea>
+                        </div>
+                    </div>
+
+                    <button id="markdown-editor-copy" type="button">Copy Markdown</button>
+                    <p><em>NOTE: It will be saved in LocalStorage.</em></p>
+                </div>
             </section>
         </main>
     </div>
