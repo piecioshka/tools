@@ -35,6 +35,8 @@
     <script defer src="scripts/markdown-editor.js"></script>
     <script defer src="scripts/unicode-inspector.js"></script>
     <script defer src="scripts/timestamp-converter.js"></script>
+    <script defer src="scripts/vendor/convert-md-to-bbcode.js"></script>
+    <script defer src="scripts/markdown-bbcode.js"></script>
     <script defer src="scripts/tools-sidebar.js"></script>
     <script defer src="scripts/theme-toggle.js"></script>
 </head>
@@ -70,6 +72,7 @@
                         <li><a href="#markdown-editor"><span aria-hidden="true">📝</span> WYSIWYG Markdown Editor</a></li>
                         <li><a href="#unicode-inspector"><span aria-hidden="true">🕵️</span> Unicode Inspector</a></li>
                         <li><a href="#timestamp-converter"><span aria-hidden="true">⏱️</span> Timestamp Converter</a></li>
+                        <li><a href="#markdown-bbcode"><span aria-hidden="true">📋</span> Markdown → BBCode</a></li>
                     </ul>
                 </nav>
             </div>
@@ -327,6 +330,29 @@
                                 <tr><th scope="row">Relative</th><td><code data-timestamp-value="relative"></code></td><td><button type="button" class="small-button" data-timestamp-copy="relative">Copy</button></td></tr>
                             </tbody>
                         </table>
+                    </fieldset>
+                </div>
+            </section>
+            <section id="markdown-bbcode" class="component">
+                <h2><a href="#markdown-bbcode">Markdown → BBCode</a></h2>
+
+                <div class="component-content">
+                    <fieldset>
+                        <label for="markdown-bbcode-style" class="visually-hidden">Output style</label>
+                        <select id="markdown-bbcode-style">
+                            <option value="plain" selected>Plain - every heading becomes a [b] line</option>
+                            <option value="pinecoders">PineCoders - "█ [b]SECTION[/b]" headings, first H1 dropped</option>
+                        </select>
+                        <label class="checkbox-label">
+                            <input id="markdown-bbcode-keep-h1" type="checkbox" disabled/>
+                            <span>Keep the first H1 (PineCoders style)</span>
+                        </label>
+                        <label for="markdown-bbcode-input" class="visually-hidden">Markdown</label>
+                        <textarea id="markdown-bbcode-input" rows="10" placeholder="Paste Markdown here..." spellcheck="false"></textarea>
+                        <label for="markdown-bbcode-output" class="visually-hidden">BBCode output</label>
+                        <textarea id="markdown-bbcode-output" rows="10" readonly spellcheck="false"></textarea>
+                        <button id="markdown-bbcode-copy" type="button">Copy BBCode</button>
+                        <p><em>Powered by <a href="https://github.com/piecioshka/convert-md-to-bbcode" target="_blank" rel="noopener noreferrer">convert-md-to-bbcode</a>.</em></p>
                     </fieldset>
                 </div>
             </section>
