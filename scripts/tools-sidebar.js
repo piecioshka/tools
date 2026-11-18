@@ -21,6 +21,7 @@
 
             if ($toggle instanceof HTMLButtonElement) {
                 $toggle.setAttribute("aria-expanded", String(isOpen));
+                $toggle.setAttribute("aria-label", isOpen ? "Collapse tools sidebar" : "Expand tools sidebar");
             }
         }
 
