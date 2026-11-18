@@ -14,7 +14,7 @@
     }
 
     function formatRatio(a, b) {
-        if (!Number.isFinite(a) || !Number.isFinite(b)) return "Ratio: —";
+        if (!Number.isFinite(a) || !Number.isFinite(b)) return "Ratio: -";
         if (a === 0 && b === 0) return "Ratio: 0 : 0";
         if (b === 0) return "Ratio: 1 : 0";
 
