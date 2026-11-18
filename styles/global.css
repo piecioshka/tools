@@ -188,9 +188,22 @@ main {
     color: var(--muted-color);
 }
 
+.tools-group-title {
+    margin: 0 0 4px;
+    padding: 0 12px;
+    color: var(--muted-color);
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.tools-list + .tools-group-title {
+    margin-top: 16px;
+}
+
 .tools-list {
     display: grid;
-    gap: 6px;
+    gap: 2px;
     list-style: none;
     margin: 0;
     padding: 0;
@@ -202,7 +215,7 @@ main {
     gap: 10px;
     border-radius: var(--radius);
     color: inherit;
-    padding: 10px 12px;
+    padding: 8px 12px;
     text-decoration: none;
 }
 
