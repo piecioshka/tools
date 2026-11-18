@@ -34,6 +34,7 @@
     <script defer src="scripts/date-diff.js"></script>
     <script defer src="scripts/markdown-editor.js"></script>
     <script defer src="scripts/unicode-inspector.js"></script>
+    <script defer src="scripts/timestamp-converter.js"></script>
     <script defer src="scripts/tools-sidebar.js"></script>
     <script defer src="scripts/theme-toggle.js"></script>
 </head>
@@ -68,6 +69,7 @@
                         <li><a href="#date-diff"><span aria-hidden="true">📅</span> Date Diff</a></li>
                         <li><a href="#markdown-editor"><span aria-hidden="true">📝</span> WYSIWYG Markdown Editor</a></li>
                         <li><a href="#unicode-inspector"><span aria-hidden="true">🕵️</span> Unicode Inspector</a></li>
+                        <li><a href="#timestamp-converter"><span aria-hidden="true">⏱️</span> Timestamp Converter</a></li>
                     </ul>
                 </nav>
             </div>
@@ -302,6 +304,29 @@
                         <label for="unicode-inspector-output" class="field-label">Clean text</label>
                         <textarea id="unicode-inspector-output" rows="8" readonly></textarea>
                         <button id="unicode-inspector-copy" type="button">Copy clean text</button>
+                    </fieldset>
+                </div>
+            </section>
+            <section id="timestamp-converter" class="component">
+                <h2><a href="#timestamp-converter">Timestamp Converter</a></h2>
+
+                <div class="component-content">
+                    <fieldset>
+                        <legend>Unix timestamp or date</legend>
+                        <label for="timestamp-input" class="visually-hidden">Unix timestamp or date</label>
+                        <input id="timestamp-input" type="text" placeholder="1763460000, 1763460000000 or 2026-11-18 10:00" autocomplete="off" spellcheck="false"/>
+                        <button id="timestamp-now" type="button">Now</button>
+                        <p id="timestamp-status" class="status-text" aria-live="polite"></p>
+                        <table id="timestamp-table" class="data-table">
+                            <tbody>
+                                <tr><th scope="row">Unix (seconds)</th><td><code data-timestamp-value="seconds"></code></td><td><button type="button" class="small-button" data-timestamp-copy="seconds">Copy</button></td></tr>
+                                <tr><th scope="row">Unix (milliseconds)</th><td><code data-timestamp-value="milliseconds"></code></td><td><button type="button" class="small-button" data-timestamp-copy="milliseconds">Copy</button></td></tr>
+                                <tr><th scope="row">UTC</th><td><code data-timestamp-value="utc"></code></td><td><button type="button" class="small-button" data-timestamp-copy="utc">Copy</button></td></tr>
+                                <tr><th scope="row">Local</th><td><code data-timestamp-value="local"></code></td><td><button type="button" class="small-button" data-timestamp-copy="local">Copy</button></td></tr>
+                                <tr><th scope="row">ISO 8601</th><td><code data-timestamp-value="iso"></code></td><td><button type="button" class="small-button" data-timestamp-copy="iso">Copy</button></td></tr>
+                                <tr><th scope="row">Relative</th><td><code data-timestamp-value="relative"></code></td><td><button type="button" class="small-button" data-timestamp-copy="relative">Copy</button></td></tr>
+                            </tbody>
+                        </table>
                     </fieldset>
                 </div>
             </section>
