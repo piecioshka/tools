@@ -18,6 +18,7 @@
 - ✅ Unicode Inspector - find Cyrillic and Greek homoglyphs, en/em dashes, unusual spaces, zero-width, BOM and bidi characters, and replace them with safe ones
 - ✅ Timestamp Converter - convert Unix timestamps (seconds or milliseconds, detected automatically) and dates to UTC, local time, ISO 8601 and relative time
 - ✅ Markdown → BBCode - convert Markdown to BBCode for TradingView script descriptions and forums, with the optional PineCoders style
+- ✅ Contrast Checker - WCAG 2 contrast ratio with AA/AAA results, also for text on a tinted background (`color-mix`)
 
 ## License
 

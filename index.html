@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="styles/data-table.css">
     <link rel="stylesheet" href="styles/markdown-editor.css">
     <link rel="stylesheet" href="styles/unicode-inspector.css">
+    <link rel="stylesheet" href="styles/contrast-checker.css">
 
     <script defer src="scripts/error-handler.js"></script>
     <script defer src="scripts/shared/setup-component.js"></script>
@@ -37,6 +38,7 @@
     <script defer src="scripts/timestamp-converter.js"></script>
     <script defer src="scripts/vendor/convert-md-to-bbcode.js"></script>
     <script defer src="scripts/markdown-bbcode.js"></script>
+    <script defer src="scripts/contrast-checker.js"></script>
     <script defer src="scripts/tools-sidebar.js"></script>
     <script defer src="scripts/theme-toggle.js"></script>
 </head>
@@ -73,6 +75,7 @@
                         <li><a href="#unicode-inspector"><span aria-hidden="true">🕵️</span> Unicode Inspector</a></li>
                         <li><a href="#timestamp-converter"><span aria-hidden="true">⏱️</span> Timestamp Converter</a></li>
                         <li><a href="#markdown-bbcode"><span aria-hidden="true">📋</span> Markdown → BBCode</a></li>
+                        <li><a href="#contrast-checker"><span aria-hidden="true">🎨</span> Contrast Checker</a></li>
                     </ul>
                 </nav>
             </div>
@@ -353,6 +356,55 @@
                         <textarea id="markdown-bbcode-output" rows="10" readonly spellcheck="false"></textarea>
                         <button id="markdown-bbcode-copy" type="button">Copy BBCode</button>
                         <p><em>Powered by <a href="https://github.com/piecioshka/convert-md-to-bbcode" target="_blank" rel="noopener noreferrer">convert-md-to-bbcode</a>.</em></p>
+                    </fieldset>
+                </div>
+            </section>
+            <section id="contrast-checker" class="component">
+                <h2><a href="#contrast-checker">Contrast Checker</a></h2>
+
+                <div class="component-content two-columns">
+                    <fieldset>
+                        <legend>Text color</legend>
+                        <div class="contrast-color">
+                            <input id="contrast-fg-picker" type="color" value="#fab229" aria-label="Pick text color"/>
+                            <label for="contrast-fg" class="visually-hidden">Text color (hex)</label>
+                            <input id="contrast-fg" type="text" value="#fab229" spellcheck="false" autocomplete="off"/>
+                        </div>
+                    </fieldset>
+                    <fieldset>
+                        <legend>Background</legend>
+                        <div class="contrast-color">
+                            <input id="contrast-bg-picker" type="color" value="#18151f" aria-label="Pick background color"/>
+                            <label for="contrast-bg" class="visually-hidden">Background color (hex)</label>
+                            <input id="contrast-bg" type="text" value="#18151f" spellcheck="false" autocomplete="off"/>
+                        </div>
+                    </fieldset>
+                </div>
+
+                <div class="component-content">
+                    <fieldset>
+                        <label for="contrast-tint" class="field-label">Tint background with text color (%) - like <code>color-mix(in srgb, text 10%, background)</code></label>
+                        <input id="contrast-tint" type="number" min="0" max="100" step="1" value="0"/>
+                        <button id="contrast-swap" type="button">Swap colors</button>
+                        <output id="contrast-ratio" class="contrast-ratio" aria-live="polite"></output>
+                        <p id="contrast-effective-bg" class="contrast-effective-bg"></p>
+                        <div class="contrast-preview">
+                            <p>Normal text: The quick brown fox jumps over the lazy dog.</p>
+                            <p class="contrast-preview-large">Large text 24px bold</p>
+                            <span class="contrast-preview-ui">UI component</span>
+                        </div>
+                        <table class="data-table">
+                            <thead>
+                                <tr><th scope="col">WCAG 2 level</th><th scope="col">Required</th><th scope="col">Result</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><th scope="row">AA normal text</th><td>4.5 : 1</td><td data-contrast-level="aa-normal"></td></tr>
+                                <tr><th scope="row">AA large text</th><td>3 : 1</td><td data-contrast-level="aa-large"></td></tr>
+                                <tr><th scope="row">AAA normal text</th><td>7 : 1</td><td data-contrast-level="aaa-normal"></td></tr>
+                                <tr><th scope="row">AAA large text</th><td>4.5 : 1</td><td data-contrast-level="aaa-large"></td></tr>
+                                <tr><th scope="row">UI components</th><td>3 : 1</td><td data-contrast-level="ui"></td></tr>
+                            </tbody>
+                        </table>
                     </fieldset>
                 </div>
             </section>
